@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>수학컴뱃 - SNS 사용시간과 시험성적의 상관관계 연구</title>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #6C63FF;
@@ -25,7 +25,8 @@
             background: var(--dark);
             color: var(--light);
             overflow-x: hidden;
-            line-height: 1.8;
+            line-height: 2;
+            font-size: 1.3rem;
         }
 
         .gradient-mesh {
@@ -67,7 +68,7 @@
 
         header {
             background: rgba(10, 14, 39, 0.95);
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             text-align: center;
             border-bottom: 3px solid var(--accent);
             position: sticky;
@@ -78,27 +79,30 @@
 
         h1 {
             font-family: 'Black Han Sans', sans-serif;
-            font-size: 3rem;
+            font-size: 2.5rem;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 0.5rem;
+            letter-spacing: 1px;
         }
 
         .subtitle {
-            font-size: 1.2rem;
-            color: rgba(250, 250, 250, 0.7);
+            font-size: 1.1rem;
+            color: rgba(250, 250, 250, 0.9);
+            font-weight: 500;
+            margin: 0.3rem 0;
         }
 
         nav {
             background: rgba(10, 14, 39, 0.9);
-            padding: 1rem;
+            padding: 0.8rem;
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
             position: sticky;
-            top: 100px;
+            top: 90px;
             z-index: 99;
             border-bottom: 2px solid var(--secondary);
         }
@@ -106,25 +110,28 @@
         nav a {
             color: var(--light);
             text-decoration: none;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
             transition: all 0.3s;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid transparent;
         }
 
         nav a:hover {
             background: var(--primary);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            border-color: var(--accent);
         }
 
         section {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 3rem 2rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
+            max-width: 1400px;
+            margin: 5rem auto;
+            padding: 4rem 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.15);
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.6s;
@@ -137,61 +144,78 @@
 
         h2 {
             font-family: 'Black Han Sans', sans-serif;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             color: var(--accent);
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             text-align: center;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         h3 {
             font-family: 'Black Han Sans', sans-serif;
-            font-size: 1.8rem;
+            font-size: 2.3rem;
             color: var(--secondary);
-            margin: 2rem 0 1rem 0;
+            margin: 2.5rem 0 1.5rem 0;
+            letter-spacing: 1px;
+        }
+
+        h4 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 1.5rem 0 1rem 0;
         }
 
         .highlight {
             color: var(--accent);
-            font-weight: 700;
+            font-weight: 900;
+            font-size: 1.4em;
         }
 
         .team-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
         }
 
         .team-card {
-            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(255, 107, 53, 0.1));
-            padding: 2rem;
-            border-radius: 15px;
-            border: 2px solid rgba(255, 210, 63, 0.3);
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.15), rgba(255, 107, 53, 0.15));
+            padding: 3rem;
+            border-radius: 20px;
+            border: 3px solid rgba(255, 210, 63, 0.4);
             transition: all 0.3s;
         }
 
         .team-card:hover {
             transform: translateY(-10px);
             border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(255, 210, 63, 0.3);
+            box-shadow: 0 15px 40px rgba(255, 210, 63, 0.4);
         }
 
         .team-card h3 {
             color: var(--accent);
             margin-top: 0;
+            font-size: 2.5rem;
         }
 
         .team-card .role {
             color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .team-card p {
+            font-size: 1.4rem;
+            line-height: 1.8;
         }
 
         .chart-wrapper {
             background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
             min-height: 700px;
             position: relative;
         }
@@ -199,77 +223,130 @@
         .chart-wrapper::before {
             content: '';
             position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 15px;
+            border-radius: 20px;
             z-index: -1;
-            opacity: 0.3;
+            opacity: 0.4;
         }
 
         .data-box {
-            background: rgba(108, 99, 255, 0.1);
-            border-left: 4px solid var(--primary);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 8px;
+            background: rgba(108, 99, 255, 0.15);
+            border-left: 6px solid var(--primary);
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+            font-size: 1.4rem;
+        }
+
+        .data-box h3 {
+            margin-top: 0;
+            font-size: 2.2rem;
+        }
+
+        .data-box p {
+            margin: 1.2rem 0;
+            line-height: 2;
         }
 
         .insight-box {
-            background: rgba(255, 107, 53, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 8px;
+            background: rgba(255, 107, 53, 0.15);
+            border-left: 6px solid var(--secondary);
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+            font-size: 1.4rem;
+        }
+
+        .insight-box h3 {
+            margin-top: 0;
+            font-size: 2.2rem;
+        }
+
+        .insight-box p {
+            margin: 1.2rem 0;
+            line-height: 2;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
 
         .stat-card {
-            background: linear-gradient(135deg, rgba(108, 99, 255, 0.2), rgba(255, 210, 63, 0.1));
-            padding: 1.5rem;
-            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.25), rgba(255, 210, 63, 0.15));
+            padding: 2.5rem;
+            border-radius: 15px;
             text-align: center;
-            border: 1px solid rgba(255, 210, 63, 0.3);
+            border: 2px solid rgba(255, 210, 63, 0.4);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 210, 63, 0.3);
         }
 
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 3.5rem;
+            font-weight: 900;
             color: var(--accent);
             font-family: 'Black Han Sans', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .stat-label {
-            color: rgba(250, 250, 250, 0.8);
-            margin-top: 0.5rem;
+            color: rgba(250, 250, 250, 0.9);
+            margin-top: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
         }
 
         ul, ol {
-            margin: 1rem 0 1rem 2rem;
+            margin: 1.5rem 0 1.5rem 3rem;
+            font-size: 1.4rem;
         }
 
         li {
-            margin: 0.8rem 0;
+            margin: 1.2rem 0;
+            line-height: 1.8;
+        }
+
+        li strong {
+            color: var(--accent);
+            font-size: 1.2em;
         }
 
         p {
-            margin: 1rem 0;
+            margin: 1.5rem 0;
+            font-size: 1.4rem;
+            line-height: 2;
+        }
+
+        p strong {
+            color: var(--accent);
+            font-weight: 700;
         }
 
         footer {
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             background: rgba(10, 14, 39, 0.95);
-            border-top: 3px solid var(--accent);
-            margin-top: 4rem;
+            border-top: 4px solid var(--accent);
+            margin-top: 5rem;
+        }
+
+        footer h2 {
+            font-size: 3rem;
+        }
+
+        footer p {
+            font-size: 1.3rem;
         }
     </style>
 </head>
@@ -297,7 +374,7 @@
         
         <div class="data-box">
             <h3 style="margin-top: 0; color: var(--accent);">⚔️ 팀명: 수학컴뱃</h3>
-            <p>데이터로 진실을 찾는다! SNS와 성적의 상관관계를 밝히는 두 명의 연구자</p>
+            <p style="font-size: 1.5rem;">데이터로 진실을 찾는다! SNS와 성적의 상관관계를 밝히는 두 명의 연구자</p>
         </div>
 
         <div class="team-cards">
@@ -333,7 +410,9 @@
         
         <div class="insight-box">
             <h3>시작</h3>
-            <p>핸드폰만 주어지면 인스타그램, 틱톡을 보는 친구들. 시험 성적 격차는 점점 커졌다. "혹시 SNS 때문?"</p>
+            <p style="font-size: 1.6rem; font-weight: 600;">핸드폰만 주어지면 인스타그램, 틱톡을 보는 친구들</p>
+            <p style="font-size: 1.6rem; font-weight: 600;">시험 성적 격차는 점점 커졌다</p>
+            <p style="font-size: 1.7rem; color: var(--accent); font-weight: 700;">"혹시 SNS 때문?"</p>
         </div>
 
         <div class="stats-grid">
@@ -352,8 +431,8 @@
         </div>
 
         <div class="data-box">
-            <p><strong>연구 질문:</strong> SNS를 많이 쓸수록 성적이 낮을까?</p>
-            <p><strong>가설:</strong> SNS 사용시간 ↑ → 시험 성적 ↓</p>
+            <p style="font-size: 1.6rem;"><strong>연구 질문:</strong> SNS를 많이 쓸수록 성적이 낮을까?</p>
+            <p style="font-size: 1.6rem;"><strong>가설:</strong> <span style="color: var(--accent); font-weight: 700;">SNS 사용시간 ↑ → 시험 성적 ↓</span></p>
         </div>
     </section>
 
@@ -368,15 +447,15 @@
 
         <h3>📝 설문 내용</h3>
         <ol>
-            <li>1주일 평균 SNS 사용시간</li>
-            <li>3학년 2학기 지필고사 평균 성적</li>
+            <li><strong>1주일 평균 SNS 사용시간</strong></li>
+            <li><strong>3학년 2학기 지필고사 평균 성적</strong></li>
         </ol>
 
         <h3>📈 데이터 분석</h3>
         <ul>
-            <li>통그라미로 산점도 생성</li>
-            <li>사용시간별 평균 성적 계산</li>
-            <li>특이점 분석</li>
+            <li><strong>통그라미로 산점도 생성</strong></li>
+            <li><strong>사용시간별 평균 성적 계산</strong></li>
+            <li><strong>특이점 분석</strong></li>
         </ul>
     </section>
 
@@ -385,8 +464,8 @@
         
         <div class="insight-box">
             <h3>🎯 핵심 발견</h3>
-            <p><span class="highlight">명확한 음의 상관관계 확인!</span></p>
-            <p>SNS 사용시간 ↑ → 시험 성적 ↓</p>
+            <p style="font-size: 2rem; font-weight: 900; color: var(--accent);">명확한 음의 상관관계 확인!</p>
+            <p style="font-size: 1.8rem; font-weight: 700;">SNS 사용시간 ↑ → 시험 성적 ↓</p>
         </div>
 
         <h3>📊 인터랙티브 차트</h3>
@@ -396,9 +475,9 @@
 
         <div class="data-box">
             <h3 style="margin-top: 0;">🎨 색상 구분</h3>
-            <p><span style="color: #6C63FF;">● 보라색:</span> 80점 이상</p>
-            <p><span style="color: #FFD23F;">● 노란색:</span> 60-79점</p>
-            <p><span style="color: #FF6B35;">● 주황색:</span> 60점 미만</p>
+            <p style="font-size: 1.5rem;"><span style="color: #6C63FF; font-weight: 700;">● 보라색:</span> 80점 이상</p>
+            <p style="font-size: 1.5rem;"><span style="color: #FFD23F; font-weight: 700;">● 노란색:</span> 60-79점</p>
+            <p style="font-size: 1.5rem;"><span style="color: #FF6B35; font-weight: 700;">● 주황색:</span> 60점 미만</p>
         </div>
 
         <h3>📸 통그라미 원본</h3>
@@ -436,28 +515,28 @@
         <h3>🎯 주요 발견</h3>
         
         <div class="data-box">
-            <h4 style="color: var(--accent);">1. 황금 시간대</h4>
-            <p>SNS 1-2시간 → 평균 92점 (최고 성적)</p>
+            <h4 style="color: var(--accent); font-size: 2rem;">1. 황금 시간대</h4>
+            <p style="font-size: 1.6rem; font-weight: 600;">SNS 1-2시간 → 평균 92점 (최고 성적)</p>
         </div>
 
         <div class="data-box">
-            <h4 style="color: var(--accent);">2. 위험 구간</h4>
-            <p>SNS 4시간 이상 → 성적 급락</p>
-            <p>5-6시간 그룹 대부분 60점 이하</p>
+            <h4 style="color: var(--accent); font-size: 2rem;">2. 위험 구간</h4>
+            <p style="font-size: 1.6rem; font-weight: 600;">SNS 4시간 이상 → 성적 급락</p>
+            <p style="font-size: 1.6rem; font-weight: 600;">5-6시간 그룹 대부분 60점 이하</p>
         </div>
 
         <div class="data-box">
-            <h4 style="color: var(--accent);">3. 예외 케이스</h4>
-            <p>SNS 6시간 + 95점 학생 1명</p>
-            <p>→ 시간 관리와 집중력이 핵심!</p>
+            <h4 style="color: var(--accent); font-size: 2rem;">3. 예외 케이스</h4>
+            <p style="font-size: 1.6rem; font-weight: 600;">SNS 6시간 + 95점 학생 1명</p>
+            <p style="font-size: 1.6rem; font-weight: 600;">→ 시간 관리와 집중력이 핵심!</p>
         </div>
 
         <h3>💡 원인 분석</h3>
         
         <div class="insight-box">
-            <p><strong>시간 부족:</strong> SNS ↑ → 공부 시간 ↓</p>
-            <p><strong>집중력 저하:</strong> 짧은 콘텐츠 → 긴 집중 힘듦</p>
-            <p><strong>수면 부족:</strong> 자기 전 SNS → 학습 능력 ↓</p>
+            <p style="font-size: 1.6rem;"><strong>시간 부족:</strong> SNS ↑ → 공부 시간 ↓</p>
+            <p style="font-size: 1.6rem;"><strong>집중력 저하:</strong> 짧은 콘텐츠 → 긴 집중 힘듦</p>
+            <p style="font-size: 1.6rem;"><strong>수면 부족:</strong> 자기 전 SNS → 학습 능력 ↓</p>
         </div>
     </section>
 
@@ -466,55 +545,58 @@
         
         <div class="insight-box" style="border-color: var(--accent);">
             <h3 style="color: var(--accent); margin-top: 0;">🎯 결론</h3>
-            <p style="font-size: 1.2rem; font-weight: 600;">
+            <p style="font-size: 1.9rem; font-weight: 900;">
                 <span class="highlight">SNS 사용시간과 성적은 음의 상관관계</span>
             </p>
-            <p>중요한 건 <span class="highlight">스마트한 시간 관리</span>!</p>
+            <p style="font-size: 1.7rem; font-weight: 700;">중요한 건 <span class="highlight">스마트한 시간 관리</span>!</p>
         </div>
 
         <h3>💪 실천 제안</h3>
         
         <div class="data-box">
-            <h4 style="color: var(--accent);">📱 스마트 사용법</h4>
+            <h4 style="color: var(--accent); font-size: 2rem;">📱 스마트 사용법</h4>
             <ol>
-                <li>하루 2시간 이내 (황금 시간대)</li>
-                <li>공부 시 폰 격리</li>
-                <li>잠자기 1시간 전 폰 OFF</li>
-                <li>앱 타이머 설정</li>
+                <li><strong>하루 2시간 이내</strong> (황금 시간대)</li>
+                <li><strong>공부 시 폰 격리</strong></li>
+                <li><strong>잠자기 1시간 전 폰 OFF</strong></li>
+                <li><strong>앱 타이머 설정</strong></li>
             </ol>
         </div>
 
         <div class="data-box">
-            <h4 style="color: var(--accent);">⏰ 시간 관리</h4>
+            <h4 style="color: var(--accent); font-size: 2rem;">⏰ 시간 관리</h4>
             <ol>
-                <li>포모도로 기법 (25분 집중 + 5분 휴식)</li>
-                <li>할 일 완료 후 SNS</li>
-                <li>친구와 함께 도전</li>
+                <li><strong>포모도로 기법</strong> (25분 집중 + 5분 휴식)</li>
+                <li><strong>할 일 완료 후 SNS</strong></li>
+                <li><strong>친구와 함께 도전</strong></li>
             </ol>
         </div>
 
         <h3>🔬 연구의 한계</h3>
         
         <div class="insight-box">
-            <p>• 표본: 우리 반 24명 (더 많은 대상 필요)</p>
-            <p>• 변수: SNS 외 다른 요인 미고려</p>
-            <p>• 인과관계: 상관관계 ≠ 인과관계</p>
-            <p>• 자가 보고: 실제 사용 시간과 차이 가능</p>
+            <p style="font-size: 1.5rem;">• 표본: 우리 반 24명 (더 많은 대상 필요)</p>
+            <p style="font-size: 1.5rem;">• 변수: SNS 외 다른 요인 미고려</p>
+            <p style="font-size: 1.5rem;">• 인과관계: 상관관계 ≠ 인과관계</p>
+            <p style="font-size: 1.5rem;">• 자가 보고: 실제 사용 시간과 차이 가능</p>
         </div>
 
         <h3>🚀 향후 계획</h3>
         
         <div class="data-box">
             <ul>
-                <li>전교생 대상 확대 연구</li>
-                <li>SNS 줄이기 캠페인</li>
-                <li>3개월 후 추적 조사</li>
+                <li><strong>전교생 대상 확대 연구</strong></li>
+                <li><strong>SNS 줄이기 캠페인</strong></li>
+                <li><strong>3개월 후 추적 조사</strong></li>
             </ul>
         </div>
 
-        <div class="insight-box" style="border-color: var(--accent); text-align: center;">
-            <p style="font-size: 1.2rem; margin-top: 1rem; color: var(--accent);">
-                <strong>SNS를 적이 아닌 친구로! 함께 파이팅! 🎉</strong>
+        <div class="insight-box" style="border-color: var(--accent); text-align: center; padding: 3rem;">
+            <p style="font-size: 2.2rem; font-weight: 900; color: var(--accent);">
+                SNS를 적이 아닌 친구로!
+            </p>
+            <p style="font-size: 2.5rem; font-weight: 900; color: var(--accent); margin-top: 1rem;">
+                함께 파이팅! 🎉
             </p>
         </div>
     </section>
@@ -566,10 +648,10 @@
                     return 'rgba(255, 107, 53, 1)';
                 },
                 borderWidth: 3,
-                pointRadius: 12,
-                pointHoverRadius: 16,
+                pointRadius: 14,
+                pointHoverRadius: 18,
                 pointStyle: 'circle',
-                pointBorderWidth: 2
+                pointBorderWidth: 3
             }]
         };
 
@@ -585,41 +667,42 @@
                         display: true,
                         text: 'SNS 사용시간 vs 시험성적',
                         font: {
-                            size: 28,
+                            size: 32,
                             weight: 'bold',
                             family: "'Black Han Sans', sans-serif"
                         },
                         color: '#FFD23F',
-                        padding: 25
+                        padding: 30
                     },
                     legend: {
                         display: true,
                         labels: {
                             color: '#FAFAFA',
                             font: {
-                                size: 16,
-                                family: "'Noto Sans KR', sans-serif"
+                                size: 18,
+                                family: "'Noto Sans KR', sans-serif",
+                                weight: '600'
                             },
-                            padding: 20,
+                            padding: 25,
                             generateLabels: function(chart) {
                                 return [
                                     {
                                         text: '80점 이상',
                                         fillStyle: 'rgba(108, 99, 255, 0.7)',
                                         strokeStyle: 'rgba(108, 99, 255, 1)',
-                                        lineWidth: 2
+                                        lineWidth: 3
                                     },
                                     {
                                         text: '60-79점',
                                         fillStyle: 'rgba(255, 210, 63, 0.7)',
                                         strokeStyle: 'rgba(255, 210, 63, 1)',
-                                        lineWidth: 2
+                                        lineWidth: 3
                                     },
                                     {
                                         text: '60점 미만',
                                         fillStyle: 'rgba(255, 107, 53, 0.7)',
                                         strokeStyle: 'rgba(255, 107, 53, 1)',
-                                        lineWidth: 2
+                                        lineWidth: 3
                                     }
                                 ];
                             }
@@ -630,14 +713,14 @@
                         titleColor: '#FFD23F',
                         bodyColor: '#FAFAFA',
                         borderColor: '#FF6B35',
-                        borderWidth: 2,
-                        padding: 15,
+                        borderWidth: 3,
+                        padding: 20,
                         titleFont: {
-                            size: 16,
+                            size: 18,
                             weight: 'bold'
                         },
                         bodyFont: {
-                            size: 14
+                            size: 16
                         },
                         displayColors: true,
                         callbacks: {
@@ -659,24 +742,24 @@
                             display: true,
                             text: 'SNS 사용시간 (시간/일)',
                             font: {
-                                size: 18,
+                                size: 20,
                                 weight: 'bold',
                                 family: "'Noto Sans KR', sans-serif"
                             },
                             color: '#FFD23F',
-                            padding: 15
+                            padding: 20
                         },
                         ticks: {
                             color: '#FAFAFA',
                             font: {
-                                size: 16,
-                                weight: '500'
+                                size: 18,
+                                weight: '600'
                             },
                             stepSize: 1,
-                            padding: 10
+                            padding: 15
                         },
                         grid: {
-                            color: 'rgba(255, 255, 255, 0.15)',
+                            color: 'rgba(255, 255, 255, 0.2)',
                             lineWidth: 2
                         },
                         min: 0,
@@ -687,24 +770,24 @@
                             display: true,
                             text: '시험성적 (점)',
                             font: {
-                                size: 18,
+                                size: 20,
                                 weight: 'bold',
                                 family: "'Noto Sans KR', sans-serif"
                             },
                             color: '#FFD23F',
-                            padding: 15
+                            padding: 20
                         },
                         ticks: {
                             color: '#FAFAFA',
                             font: {
-                                size: 16,
-                                weight: '500'
+                                size: 18,
+                                weight: '600'
                             },
                             stepSize: 10,
-                            padding: 10
+                            padding: 15
                         },
                         grid: {
-                            color: 'rgba(255, 255, 255, 0.15)',
+                            color: 'rgba(255, 255, 255, 0.2)',
                             lineWidth: 2
                         },
                         min: 0,
